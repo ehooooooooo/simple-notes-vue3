@@ -9,13 +9,15 @@ export const useDaysStore = defineStore("daysStore", () => {
   const notesStore = useNotesStore();
 
   const getDays = () => {
-    notesStore.notes.forEach((note) => {
-      const condition = days.value.find((item) => item.date === note.date);
+    const arr = notesStore.notes.reduce((acc, note) => {
+      const condition = acc.find((item) => item.date === note.date);
 
-      if (!condition) {
-        days.value.push(note);
-      }
-    });
+      if (!condition) acc.push(note);
+
+      return acc;
+    }, []);
+
+    setDays(arr);
   };
 
   const setDays = (arr) => (days.value = arr);
