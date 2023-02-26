@@ -17,6 +17,8 @@ export default () => {
     const current = notesStore.notes.find((item) => item.id === id);
     const title = prompt("Edit note:", current.title) || current.title;
 
+    if (current.title === title) return;
+
     notesStore.editNote(id, title);
   };
 
