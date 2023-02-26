@@ -1,10 +1,8 @@
-import { computed, ref, watch } from "vue";
+import { ref, watch } from "vue";
 import { defineStore } from "pinia";
 
 export const useNotesStore = defineStore("notesStore", () => {
   const notes = ref(JSON.parse(localStorage.getItem("notes")) || []);
-
-  const validNotes = computed(() => notes.value.length);
 
   const addNote = (note) => notes.value.push(note);
 
@@ -25,5 +23,5 @@ export const useNotesStore = defineStore("notesStore", () => {
     { deep: true }
   );
 
-  return { notes, addNote, validNotes, removeNote, editNote };
+  return { notes, addNote, removeNote, editNote };
 });

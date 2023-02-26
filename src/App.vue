@@ -2,6 +2,9 @@
 import { RouterView, RouterLink } from "vue-router";
 
 import CreateNote from "@/components/CreateNote.vue";
+import useApp from "@/hooks/useApp.js";
+
+useApp();
 </script>
 
 <template>
