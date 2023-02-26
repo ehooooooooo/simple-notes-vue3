@@ -8,7 +8,7 @@ const { findDays, text } = useSearchDays();
   <form class="form form-search" @submit.prevent="" @input="findDays(text)">
     <input
       class="form-input"
-      placeholder="Find days, template: 01-01-2001"
+      placeholder="Find days, template: 01/01/2001"
       type="text"
       v-model="text"
     />

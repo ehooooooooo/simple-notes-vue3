@@ -11,14 +11,13 @@ export default () => {
   const disabledForm = computed(() => route.name !== "Notes");
 
   const formatTime = computed(() => {
-    const date = new Date();
-    const time = date.toLocaleTimeString();
-    const index = time.lastIndexOf(":");
+    const today = new Date();
+    const timeStr = today.toLocaleTimeString();
+    const index = timeStr.lastIndexOf(":");
+    const time = timeStr.slice(0, index);
+    const date = today.toLocaleDateString().replaceAll(".", "/");
 
-    return {
-      date: date.toLocaleDateString().replaceAll(".", "-"),
-      time: time.slice(0, index),
-    };
+    return { date, time };
   });
 
   const createNote = () => {
