@@ -5,7 +5,7 @@ const { findDays, text } = useSearchDays();
 </script>
 
 <template>
-  <form class="form form-search" @submit.prevent="" @input="findDays(text)">
+  <form class="form form-search" @submit.prevent="" @input="findDays">
     <input
       class="form-input"
       placeholder="Find days, template: 01/01/2001"

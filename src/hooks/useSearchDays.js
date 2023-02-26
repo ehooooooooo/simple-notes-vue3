@@ -6,11 +6,11 @@ export default () => {
   const text = ref("");
   const daysStore = useDaysStore();
 
-  const findDays = (txt) => {
+  const findDays = () => {
     daysStore.getDays();
 
     const days = daysStore.days.reduce((acc, day) => {
-      if (day.date.match(txt)) acc.push(day);
+      if (day.date.match(text.value)) acc.push(day);
 
       return acc;
     }, []);
