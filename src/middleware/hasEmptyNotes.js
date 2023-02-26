@@ -1,6 +1,6 @@
 import { useNotesStore } from "@/store/notes.js";
 
-export default (to, from) => {
+export default () => {
   const notesStore = useNotesStore();
 
   if (!notesStore.notes.length) {
